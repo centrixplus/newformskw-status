@@ -132,9 +132,9 @@
           <tr>
             <td data-label="Item"><div class="item-name">Invoice Remarks &amp; Adjustments</div>
               <div class="item-detail">Name language, contact number, remarks, address</div></td>
-            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Status"><span class="pill pending">Pending</span></td>
             <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
-            <td data-label="Details">Delivered per requirement. Specific adjustments can be picked up individually as they come up.</td>
+            <td data-label="Details">Display of these fields on the order/invoice is delivered. Found during review: if a customer's name/phone is corrected in Ordable <em>after</em> the order was placed, Odoo does not currently pick up the correction automatically. Under investigation — fix will either extend our existing 15-minute re-sync to also refresh these fields, or add the ability to correct them directly in Odoo, or both.</td>
           </tr>
           <tr>
             <td data-label="Item"><div class="item-name">Invoice Design &amp; Paper Usage</div></td>
@@ -146,7 +146,31 @@
             <td data-label="Item"><div class="item-name">"Preparing" Status in Odoo</div></td>
             <td data-label="Status"><span class="pill pending">Pending</span></td>
             <td data-label="Pending from Ordable"><span class="pill ordable-yes">Yes</span></td>
-            <td data-label="Details">Ordable's API does not currently expose this status (only Received / Out For Delivery / Complete / Cancelled / Refunded can be read or set). Will be enabled as soon as Ordable makes it available.</td>
+            <td data-label="Details">Ordable's API does not currently expose this status (only Received / Out For Delivery / Complete / Cancelled / Refunded can be read or set). Will be enabled as soon as Ordable makes it available. In the meantime, we're considering an interim local label in Odoo only (never sent to Ordable) to approximate it.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Additional Improvements Identified</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34%">Item</th>
+            <th style="width:16%">Status</th>
+            <th style="width:20%">Pending from Ordable</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Item"><div class="item-name">Order Count Reconciliation</div></td>
+            <td data-label="Status"><span class="pill pending">Proposed</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">A safety-net check to automatically flag if Odoo's order count ever falls behind Ordable's, rather than relying on manual notice. Proposed after a rare case this month where a single order failed to import silently (root cause already fixed separately).</td>
           </tr>
         </tbody>
       </table>
