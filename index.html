@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New Forms Kuwait — Ordable Integration Status</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --brand: #a9713f;
+    --brand-dark: #8a5a30;
+    --ink: #262220;
+    --muted: #6b6260;
+    --line: #e7e0da;
+    --bg: #fbf9f7;
+    --card: #ffffff;
+    --done-bg: #eaf6ee;
+    --done-ink: #1e7a3f;
+    --pending-bg: #fdf3e3;
+    --pending-ink: #9a6a12;
+    --ordable-bg: #fdeaea;
+    --ordable-ink: #b23a3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 40px 24px 80px; }
+  header { margin-bottom: 36px; }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 14px; letter-spacing: .04em;
+    color: var(--brand-dark); text-transform: uppercase;
+  }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+  h1 { font-size: 28px; margin: 10px 0 6px; }
+  .sub { color: var(--muted); font-size: 15px; }
+  .meta { margin-top: 14px; font-size: 13px; color: var(--muted); }
+  section { margin-bottom: 44px; }
+  h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--brand-dark); border-bottom: 2px solid var(--line);
+    padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  thead th {
+    text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--line);
+    background: #f7f3f0;
+  }
+  tbody td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  .item-name { font-weight: 600; }
+  .item-detail { color: var(--muted); font-size: 13.5px; margin-top: 3px; }
+  .pill {
+    display: inline-block; padding: 4px 11px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 600; white-space: nowrap;
+  }
+  .pill.done { background: var(--done-bg); color: var(--done-ink); }
+  .pill.pending { background: var(--pending-bg); color: var(--pending-ink); }
+  .pill.ordable-yes { background: var(--ordable-bg); color: var(--ordable-ink); }
+  .pill.ordable-no { background: #f2f2f2; color: #8a8a8a; }
+  .custom-list { list-style: none; margin: 0; padding: 0; }
+  .custom-list li {
+    padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 14.5px;
+  }
+  .custom-list li:last-child { border-bottom: none; }
+  .custom-list .cat {
+    font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
+    color: var(--brand-dark); font-weight: 700; padding: 14px 16px 6px;
+    background: #f7f3f0;
+  }
+  .note {
+    background: #fff; border: 1px dashed var(--line); border-radius: 10px;
+    padding: 16px 18px; font-size: 14px; color: var(--muted);
+  }
+  .note strong { color: var(--ink); }
+  footer { color: var(--muted); font-size: 12.5px; text-align: center; margin-top: 60px; }
+  @media (max-width: 640px) {
+    thead { display: none; }
+    tbody td { display: block; border-bottom: none; padding: 6px 16px; }
+    tbody tr { border-bottom: 1px solid var(--line); padding: 10px 0; display: block; }
+    tbody td::before {
+      content: attr(data-label); display: block; font-size: 11px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 2px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand"><span class="dot"></span> New Forms Kuwait</div>
+    <h1>Ordable ⇄ Odoo Integration — Status Report</h1>
+    <div class="sub">Summary of reported items and platform customizations delivered to date.</div>
+    <div class="meta">Prepared by Centrix Plus · 12 July 2026</div>
+  </header>
+
+  <section>
+    <h2>Reported Gaps — Status</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34%">Item</th>
+            <th style="width:16%">Status</th>
+            <th style="width:20%">Pending from Ordable</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Item"><div class="item-name">Override Inventory Items</div></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">Orders force-placed via POS despite no stock are now clearly marked and visible in the system (channel + override indicator), on the order, the delivery note, and the daily order lists.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">Order Cancellation — Stock Return</div></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">By design. Ordable remains the single master for stock levels. When an order is cancelled, Ordable's own inventory count is what governs availability, and Odoo's automatic 15-minute sync picks up the corrected number from there.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">Invoice Remarks &amp; Adjustments</div>
+              <div class="item-detail">Name language, contact number, remarks, address</div></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">Delivered per requirement. Specific adjustments can be picked up individually as they come up.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">Invoice Design &amp; Paper Usage</div></td>
+            <td data-label="Status"><span class="pill pending">Pending</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">Ticketed. Reducing product image size and line spacing so meaningfully more items fit per printed page.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">"Preparing" Status in Odoo</div></td>
+            <td data-label="Status"><span class="pill pending">Pending</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-yes">Yes</span></td>
+            <td data-label="Details">Ordable's API does not currently expose this status (only Received / Out For Delivery / Complete / Cancelled / Refunded can be read or set). Will be enabled as soon as Ordable makes it available.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Platform Customizations Delivered</h2>
+    <div class="card">
+      <ul class="custom-list">
+        <li class="cat">Sales</li>
+        <li>Automatic order import from Ordable — creates the confirmed order, invoice, and payment</li>
+        <li>Two-way order status sync: statuses pushed to Ordable; delivery dates/status pulled and refreshed every 15 minutes</li>
+        <li>Today's / Tomorrow's Orders views, organized by fulfillment date, with delivery type, country, area, and channel columns</li>
+        <li>Add-on items (e.g. an accessory bundled with a main product) correctly billed and tracked against their own product</li>
+        <li>Exchange / special-order orders clearly tagged, shown as a column and as a banner on the printed invoice</li>
+        <li>Invoice redesigned into a full delivery note — order number, tracking number, delivery slot, payment method, order details</li>
+
+        <li class="cat">Barcode &amp; Inventory</li>
+        <li>Barcode scanning app shows live available stock while scanning</li>
+        <li>Barcode app's Delivery view shows today's Ordable orders</li>
+        <li>Per-variant barcodes and per-variant photos — each size/color shows its own real photo, matching Ordable</li>
+        <li>Full audit log of every stock and status change from each sync run</li>
+
+        <li class="cat">Sync &amp; Automation</li>
+        <li><strong>Live inventory sync confirmed working</strong> — stock levels refresh automatically from Ordable every 15 minutes</li>
+        <li>Nightly full catalogue sync — new products, prices, and barcodes</li>
+        <li>Order status and delivery-date sync every 15 minutes</li>
+        <li>Product photo sync</li>
+        <li>All sync jobs run safely in sequence and automatically retry through temporary technical hiccups, so no order or stock update is ever silently lost</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>New Forms Kuwait General Trading Co. W.L.L. — Ordable Integration Status Report</footer>
+
+</div>
+</body>
+</html>
