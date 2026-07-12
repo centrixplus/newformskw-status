@@ -133,8 +133,8 @@
             <td data-label="Item"><div class="item-name">Invoice Remarks &amp; Adjustments</div>
               <div class="item-detail">Name language, contact number, remarks, address</div></td>
             <td data-label="Status"><span class="pill pending">Pending</span></td>
-            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
-            <td data-label="Details">Display of these fields on the order/invoice is delivered. Found during review: if a customer's name/phone is corrected in Ordable <em>after</em> the order was placed, Odoo does not currently pick up the correction automatically. Under investigation — fix will either extend our existing 15-minute re-sync to also refresh these fields, or add the ability to correct them directly in Odoo, or both.</td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-yes">Yes</span></td>
+            <td data-label="Details">Display of these fields on the order/invoice is delivered. Found during review: if a customer's name/phone is corrected in Ordable <em>after</em> the order was placed, it does not come through to Odoo. Ordable's order record stores this as a fixed snapshot taken at the moment the order was placed, with no live link back to the customer profile — so this depends on Ordable's own data model rather than something on our side.</td>
           </tr>
           <tr>
             <td data-label="Item"><div class="item-name">Invoice Design &amp; Paper Usage</div></td>
@@ -168,9 +168,9 @@
         <tbody>
           <tr>
             <td data-label="Item"><div class="item-name">Order Count Reconciliation</div></td>
-            <td data-label="Status"><span class="pill pending">Proposed</span></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
             <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
-            <td data-label="Details">A safety-net check to automatically flag if Odoo's order count ever falls behind Ordable's, rather than relying on manual notice. Proposed after a rare case this month where a single order failed to import silently (root cause already fixed separately).</td>
+            <td data-label="Details">An automatic safety-net check now runs hourly, flagging any order Ordable sent us that failed to import into Odoo, instead of relying on manual notice. Added after a rare case this month where a single order failed to import silently (root cause already fixed separately).</td>
           </tr>
         </tbody>
       </table>
