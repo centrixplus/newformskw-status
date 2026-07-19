@@ -101,7 +101,7 @@
     <div class="brand"><span class="dot"></span> New Forms Kuwait</div>
     <h1>Ordable ⇄ Odoo Integration — Status Report</h1>
     <div class="sub">Summary of reported items and platform customizations delivered to date.</div>
-    <div class="meta">Prepared by Centrix Plus · 12 July 2026</div>
+    <div class="meta">Prepared by Centrix Plus · 12 July 2026 · last updated 19 July 2026</div>
   </header>
 
   <section>
@@ -170,7 +170,25 @@
             <td data-label="Item"><div class="item-name">Order Count Reconciliation</div></td>
             <td data-label="Status"><span class="pill done">Done</span></td>
             <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
-            <td data-label="Details">An automatic safety-net check now runs hourly, flagging any order Ordable sent us that failed to import into Odoo, instead of relying on manual notice. Added after a rare case this month where a single order failed to import silently (root cause already fixed separately).</td>
+            <td data-label="Details">Extended since first shipped: the automatic safety-net check now also catches an order that Ordable never sent us at all (not just one that arrived but failed to import) — two such orders were caught and recovered automatically this month. Now runs every 5 minutes instead of hourly.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">Duplicate Product Records (Barcode Mismatch)</div></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">Found and corrected 34 cases where a single item had two internal records instead of one (left over from an earlier catalogue restructuring), which occasionally caused a barcode not to scan correctly in the warehouse. All existing cases fixed, and the underlying cause corrected in the code so new duplicates can no longer be created going forward.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">Faster Order &amp; Stock Updates</div></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">Sped up several background refresh jobs: order status/payment now updates every 5 minutes (was 15); the full catalogue sync now runs 3 times a day (was once overnight); and a stock-reservation check that could occasionally leave a delivery under-reserved for up to a day now runs every 15 minutes.</td>
+          </tr>
+          <tr>
+            <td data-label="Item"><div class="item-name">Order Total Visible on Mobile</div></td>
+            <td data-label="Status"><span class="pill done">Done</span></td>
+            <td data-label="Pending from Ordable"><span class="pill ordable-no">No</span></td>
+            <td data-label="Details">Today's and Tomorrow's order lists now show a live running total at a glance on mobile, in both card and list view — previously the count wasn't visible without manually counting.</td>
           </tr>
         </tbody>
       </table>
@@ -183,8 +201,8 @@
       <ul class="custom-list">
         <li class="cat">Sales</li>
         <li>Automatic order import from Ordable — creates the confirmed order, invoice, and payment</li>
-        <li>Two-way order status sync: statuses pushed to Ordable; delivery dates/status pulled and refreshed every 15 minutes</li>
-        <li>Today's / Tomorrow's Orders views, organized by fulfillment date, with delivery type, country, area, and channel columns</li>
+        <li>Two-way order status sync: statuses pushed to Ordable; delivery dates/status pulled and refreshed every 5 minutes</li>
+        <li>Today's / Tomorrow's Orders views, organized by fulfillment date, with delivery type, country, area, and channel columns, plus a live order total visible on mobile</li>
         <li>Add-on items (e.g. an accessory bundled with a main product) correctly billed and tracked against their own product</li>
         <li>Exchange / special-order orders clearly tagged, shown as a column and as a banner on the printed invoice</li>
         <li>Invoice redesigned into a full delivery note — order number, tracking number, delivery slot, payment method, order details</li>
@@ -197,9 +215,10 @@
 
         <li class="cat">Sync &amp; Automation</li>
         <li><strong>Live inventory sync confirmed working</strong> — stock levels refresh automatically from Ordable every 15 minutes</li>
-        <li>Nightly full catalogue sync — new products, prices, and barcodes</li>
-        <li>Order status and delivery-date sync every 15 minutes</li>
+        <li>Full catalogue sync 3 times a day — new products, prices, and barcodes</li>
+        <li>Order status and delivery-date sync every 5 minutes</li>
         <li>Product photo sync</li>
+        <li>Automatic check that compares our order list directly against Ordable's, catching an order that never arrived at all — not just one that arrived and failed</li>
         <li>All sync jobs run safely in sequence and automatically retry through temporary technical hiccups, so no order or stock update is ever silently lost</li>
       </ul>
     </div>
